@@ -1,5 +1,11 @@
 import HAL
 
+private let UCSZ01 = 2
+private let UCSZ00 = 1
+private let RXEN0 = 4
+private let TXEN0 = 3
+private let UDRE0 = 5
+
 public extension Usart {
     static func setupSerial(baudRate: UInt32 = 57_600, cpuRate: UInt32 = 16_000_000) {
         guard baudRate > 1 else { return }
@@ -10,7 +16,7 @@ public extension Usart {
     }
 
     static func readyForTx() -> Bool {
-        ucsra & (1<<5) > 0
+        ucsra & (1<<UDRE0) > 0
     }
 
     @discardableResult
