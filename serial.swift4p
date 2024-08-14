@@ -1,0 +1,4 @@
+files:
+- serial.swift
+- Package.swift
+- module.modulemap
