@@ -8,3 +8,15 @@ write a single byte to the uart
 
 `func write(_ string: StaticString, timeout: UInt16 = 0)`
 write a fixed constant string to the uart
+
+
+Here's a simple hello world example...
+
+```
+import ATmega328P
+import serial
+
+ATmega328P.Usart0.setupSerial()
+
+ATmega328P.Usart0.write("Hello: World")
+```
