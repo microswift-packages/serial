@@ -18,5 +18,12 @@ import serial
 
 ATmega328P.Usart0.setupSerial()
 
+// efficiently write the bytes from a constant stored in flash memory to a Usart
+// note, this doesn't include a newline automatically
 ATmega328P.Usart0.write("Hello: World")
+// write a single byte to a Usart, for example here a newline
+ATmega328P.Usart0.write(10)
+// write a single byte to a Usart, for example here a CR
+// adding an optional timeout to prevent hanging
+ATmega328P.Usart0.write(13, timeout: 200_000)
 ```
